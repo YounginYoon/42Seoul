@@ -1,1 +1,4 @@
-# 42seoul
+# 🐳 42seoul 🐳
+
+PROJECT LISTS
+1. Libft
