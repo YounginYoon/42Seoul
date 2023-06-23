@@ -25,20 +25,21 @@ typedef struct s_data
 	int		height;
 	int		width;
 	int		player_cnt;
-	int		wall_cnt;
+	int		collectible_cnt;
 	int		exit_cnt;
 	int		r;
 	int		c;
 	int		cnt;
-	int		collectable_cnt;
 
 	char	**map;
 	void	*floor;
 	void	*wall;
-	void	*collectable;
+	void	*collectible;
 	void	*mlxp;
 	void	*winp;
 }	t_data;
 
 int	read_map(t_data *game, char **argv);
+int exit_game(t_data *game);
+void error_check(t_data *game);
 #endif

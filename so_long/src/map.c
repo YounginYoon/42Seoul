@@ -49,6 +49,22 @@ static int	add_line(t_data *game, char *newline)
 	return (1);
 }
 
+int	exit_game(t_data *game)
+{
+	int i;
+
+	i = 0;
+	if (game->winp)
+		mlx_destroy_window(game->mlxp, game->winp);
+	free(game->mlxp);
+	while (i < game->height - 1)
+	{
+		free(game->map[i++]);
+	}
+	free(game->map);
+	exit(0);
+}
+
 int	read_map(t_data *game, char **argv)
 {
 	char	*rdmap;

@@ -32,4 +32,8 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_memset(&game, 0, sizeof(t_data));
 	read_map(&game, argv);
+	error_check(&game);
+	game.mlxp = mlx_init();
+	game.winp = mlx_new_window(game.mlxp, (game.width * 40), (game.height * 40), "so_long");
+	
 }
