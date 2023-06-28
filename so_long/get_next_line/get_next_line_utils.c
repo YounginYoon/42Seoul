@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youyoon <youyoon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 14:53:03 by youyoon           #+#    #+#             */
-/*   Updated: 2023/03/04 17:08:20 by youyoon          ###   ########.fr       */
+/*   Updated: 2023/06/27 21:02:52 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *str)
 	return (c);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr2(char *s, int c)
 {
 	if (!s)
 		return (0);
@@ -39,7 +39,7 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin2(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;

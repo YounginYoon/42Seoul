@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youyoon <youyoon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 15:11:40 by youyoon           #+#    #+#             */
-/*   Updated: 2023/03/04 17:36:34 by youyoon          ###   ########.fr       */
+/*   Updated: 2023/06/27 21:03:08 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*read_and_save(int fd, char *save)
 	if (!buf)
 		return (NULL);
 	rbytes = 1;
-	while (!ft_strchr(save, '\n') && rbytes != 0)
+	while (!ft_strchr2(save, '\n') && rbytes != 0)
 	{
 		rbytes = read(fd, buf, BUFFER_SIZE);
 		if (rbytes == -1)
@@ -85,7 +85,7 @@ char	*read_and_save(int fd, char *save)
 			return (NULL);
 		}
 		buf[rbytes] = '\0';
-		save = ft_strjoin(save, buf);
+		save = ft_strjoin2(save, buf);
 	}
 	free(buf);
 	return (save);

@@ -5,54 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/26 17:37:30 by youyoon           #+#    #+#             */
-/*   Updated: 2023/06/26 17:52:31 by youyoon          ###   ########seoul.kr  */
+/*   Created: 2023/06/27 17:37:30 by youyoon           #+#    #+#             */
+/*   Updated: 2023/06/28 20:41:04 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	load_images(t_data *game)
+static int	key_hook(int keycode, t_game_info *game)
 {
-	int	h;
-	int	w;
+	int	x;
+	int	y;
 
-	game->floor = mlx_xpm_file_to_image(game->mlxp,
-			"assets/floor.xpm", &w, &h);
-	game->wall = mlx_xpm_file_to_image(game->mlxp,
-			"assets/wall.xpm", &w, &h);
-	game->player = mlx_xpm_file_to_image(game->mlxp,
-			"assets/player.xpm", &w, &h);
-	game->exit = mlx_xpm_file_to_image(game->mlxp,
-			"assets/exit.xpm", &w, &h);
-	game->collectible = mlx_xpm_file_to_image(game->mlxp,
-			"assets/collectible.xpm", &w, &h);
+	x = game->player.x;
+	y = game->player.y;
+	if (keycode == KEY_ESC)
+		close_win(game);
+	else if (keycode == KEY_A)
+		move_player(game, -1, -1, 0);
+	else if (keycode == KEY_S)
+		move_player(game, game->map.width + 1, 0, 1);
+	else if (keycode == KEY_D)
+		move_player(game, 1, 1, 0);
+	else if (keycode == KEY_W)
+		move_player(game, (game->map.width + 1) * -1, 0, -1);
+	if (x != game->player.x || y != game->player.y)
+		ft_printf("walk : %d\n", ++(game->player.walk));
+	return (0);
 }
 
-void	update_game(t_data *game)
+void	move_map(t_game_info *game)
 {
-	int	h;
-	int	w;
-
-	game->collectible_cnt = 0;
-	h = 0;
-	while (h < game->height)
-	{
-		w = 0;
-		while (w < game->map[h][w])
-		{
-			if (game->map[h][w] == '1')
-				update_wall(game, h, w);
-			if (game->map[h][w] == 'C')
-				update_collectible(game, h, w);
-			if (game->map[h][w] == 'P')
-				update_player(game, h, w);
-			if (game->map[h][w] == 'E')
-				update_exit(game, h, w);
-			if (game->map[h][w] == '0')
-				update_floor(game, h, w);
-			w++;
-		}
-		h++;
-	}
+	system("leaks so_long");
+	game->map.buf[(game->map.width + 1) \
+	* game->player.y + game->player.x] = '0';
+	mlx_hook(game->mlx_controller.win, KEY_PRESS_EVENT, 0, &key_hook, game);
+	mlx_hook(game->mlx_controller.win, KEY_CLICK_EXIT, 0, &close_win, game);
 }

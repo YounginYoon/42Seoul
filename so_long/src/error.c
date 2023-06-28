@@ -5,55 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/26 17:12:23 by youyoon           #+#    #+#             */
-/*   Updated: 2023/06/26 18:09:07 by youyoon          ###   ########seoul.kr  */
+/*   Created: 2023/06/23 17:12:23 by youyoon           #+#    #+#             */
+/*   Updated: 2023/06/28 17:48:10 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	wall_check(t_data *game)
+void	print_filename_error(int error_num)
 {
-	int	ver_wall;
-	int	hor_wall;
-
-	ver_wall = vertical_wall_check(game);
-	hor_wall = horizontal_wall_check(game);
-	if (!ver_wall || !hor_wall)
-	{
-		ft_printf("\nMissing walls\n");
-		exit_game(game);
-	}
+	if (error_num == 0)
+		ft_printf("Error\n./so_long [filename].ber\n");
+	else if (error_num == 1)
+		ft_printf("Error\nFile does not exist\n");
+	else if (error_num == 2)
+		ft_printf("Error\nExtension Error (.ber)\n");
+	else if (error_num == 3)
+		ft_printf("Error\nFilename has to be longer than 4 characters\n");
+	exit(1);
 }
 
-static void	check_map_valid(t_data *game)
+void	print_map_error_message(int error_num, t_game_info *game)
 {
-	int	h;
-	int	w;
-
-	h = 0;
-	while (h < game->height - 1)
-	{
-		w = 0;
-		while (w <= game->width)
-		{
-			check_map(game, h, w);
-			w++;
-		}
-		h++;
-	}
-	if (!(game->player_cnt == 1
-			&& game->collectible_cnt > 1
-			&& game->exit_cnt == 1))
-	{
-		ft_printf("\nError\nSomething is wrong!\n");
-		ft_printf("either player, exit or collectible error!\n");
-		exit_game(game);
-	}
-}
-
-void	error_check(t_data *game)
-{
-	wall_check(game);
-	check_map_valid(game);
+	if (error_num == 0)
+		ft_printf("Error\nValid object : 0, 1, P, E, C ONLY\n");
+	else if (error_num == 1)
+		ft_printf("Error\nIt has to be surrounded by wall\n");
+	else if (error_num == 2)
+		ft_printf("Error\nPlayer has to only one\n");
+	else if (error_num == 3)
+		ft_printf("Error\nExit has to only one\n");
+	else if (error_num == 4)
+		ft_printf("Erorr\nNot valid path\n");
+	else if (error_num == 5)
+		ft_printf("Error\nIt has to be rectangular\n");
+	else if (error_num == 6)
+		ft_printf("Error\nMap is empty\n");
+	else if (error_num == 7)
+		ft_printf("Error\nMap must contain at least 1 collectible.\n");
+	else if (error_num == 8)
+		ft_printf("Error\nClose error\n");
+	else if (error_num == 9)
+		ft_printf("Error\nMemory has not enough\n");
+	free_memory(game);
+	exit(1);
 }

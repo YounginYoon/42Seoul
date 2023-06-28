@@ -5,51 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 20:36:48 by youyoon           #+#    #+#             */
-/*   Updated: 2023/06/26 18:08:14 by youyoon          ###   ########seoul.kr  */
+/*   Created: 2023/06/21 20:36:48 by youyoon           #+#    #+#             */
+/*   Updated: 2023/06/28 20:40:56 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	*ft_memset(void *b, int c, size_t len)
+void	check(void)
 {
-	unsigned char	*tmp;
-
-	tmp = b;
-	while (len--)
-	{
-		*tmp++ = (unsigned char)c;
-	}
-	return (b);
+	system("leaks so_long");
 }
 
-int	exit_game(t_data *game)
+int	main(int argc, char *argv[])
 {
-	int	i;
+	t_game_info	game;
 
-	i = 0;
-	if (game->winp)
-		mlx_destroy_window(game->mlxp, game->winp);
-	free(game->mlxp);
-	while (i < game->height - 1)
-	{
-		free(game->map[i++]);
-	}
-	free(game->map);
-	exit(0);
-}
-
-int	main(int argc, char **argv)
-{
-	t_data	game;
-
+	atexit(check);
 	if (argc != 2)
-		return (0);
-	ft_memset(&game, 0, sizeof(t_data));
-	read_map(&game, argv);
-	error_check(&game);
-	game.mlxp = mlx_init();
-	game.winp = mlx_new_window(game.mlxp,
-			(game.width * 40), (game.height * 40), "so_long");
+		print_filename_error(0);
+	system("leaks so_long");
+	check_file_length_extension(ft_strlen(argv[1]), argv[1]);
+	system("leaks so_long");
+	init_game(&game, argv[1]);
+	system("leaks so_long");
+	run_game(&game);
+	system("leaks so_long");
+	return (0);
 }
