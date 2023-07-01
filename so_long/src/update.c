@@ -6,7 +6,7 @@
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:37:30 by youyoon           #+#    #+#             */
-/*   Updated: 2023/06/28 20:41:04 by youyoon          ###   ########seoul.kr  */
+/*   Updated: 2023/07/01 12:36:03 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static int	key_hook(int keycode, t_game_info *game)
 
 void	move_map(t_game_info *game)
 {
-	system("leaks so_long");
 	game->map.buf[(game->map.width + 1) \
 	* game->player.y + game->player.x] = '0';
 	mlx_hook(game->mlx_controller.win, KEY_PRESS_EVENT, 0, &key_hook, game);
