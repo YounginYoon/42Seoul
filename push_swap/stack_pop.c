@@ -12,30 +12,39 @@
 
 #include "push_swap.h"
 
+int	is_empty_stack(t_stack *s)
+{
+	if (s->len == 0)
+		return (1);
+	return (0);
+}
+
 t_node	*pop_top(t_stack *s)
 {
-	t_node	*ret;
+	t_node	*del;
 
 	if (is_empty_stack(s))
 		return (NULL);
-	ret = s->top;
-	s->top = s->top->next;
-	s->top->prev = NULL;
-	ret->next = NULL;
+	del = s->top->next;
+	del->next->prev = s->top;
+	s->top->next = del->next;
+	del->prev = NULL;
+	del->next = NULL;
 	s->len--;
-	return (ret);
+	return (del);
 }
 
 t_node	*pop_bottom(t_stack *s)
 {
-	t_node	*ret;
+	t_node	*del;
 
 	if (is_empty_stack(s))
 		return (NULL);
-	ret = s->bottom;
-	s->bottom = s->bottom->prev;
-	s->bottom->next = NULL;
-	ret->prev = NULL;
+	del = s->bottom->prev;
+	del->prev->next = s->bottom;
+	s->bottom->prev = del->prev;
+	del->prev = NULL;
+	del->next = NULL;
 	s->len--;
-	return (ret);
+	return (del);
 }
