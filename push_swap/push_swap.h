@@ -44,6 +44,7 @@ void print_error(void);
 /* utils.c */
 int ps_atoi(const char *str);
 int check_valid_atoi(char *str);
+void check_sorted(t_var *stacks);
 
 /* stack_push.c */
 t_node	*make_new_node(int data);

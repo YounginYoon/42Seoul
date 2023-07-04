@@ -50,3 +50,20 @@ int	check_valid_atoi(char *str)
 	}
 	return (1);
 }
+
+void	check_sorted(t_info *stacks)
+{
+	int i;
+	int check;
+
+	i = stacks->list_size;
+	check = 0;
+	while (i > 1)
+	{
+		if (stacks->list[i - 1] - stacks->list[i - 2] > 0)
+			check++;
+		i--;
+	}
+	if (check == stacks->list_size - 1)
+		exit(0);
+}
