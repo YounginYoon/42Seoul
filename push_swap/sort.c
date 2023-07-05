@@ -80,5 +80,18 @@ void	sort_args(t_info *stacks)
 
 void	sort_big_last(t_info *stacks)
 {
-
+	int min_loc = find_mid_a(stacks);
+	while (min_loc)
+	{
+		if (min_loc > 0)
+		{
+			ra(stacks);
+			min_loc--;
+		}
+		else
+		{
+			rra(stacks);
+			min_loc++;
+		}
+	}
 }
