@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   operations_swap.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 13:37:30 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/05 16:39:48 by youyoon          ###   ########seoul.kr  */
+/*   Created: 2023/07/05 15:15:22 by youyoon           #+#    #+#             */
+/*   Updated: 2023/07/05 15:36:40 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(void)
+static void	ps_swap(t_stack *stack)
 {
-	write(2, "Error\n", 6);
-	exit(1);
+	t_node	*tmp1;
+	t_node	*tmp2;
+
+	tmp1 = pop_top(stack);
+	tmp2 = pop_top(stack);
+	push_top(stack, tmp1);
+	push_top(stack, tmp2);
 }
 
-int	main(int argc, char *argv[])
+void	sa(t_info *stacks)
 {
-	t_info	st;
+	ps_swap(stacks->a_stack);
+	write(1, "sa\n", 3);
+}
 
-	if (argc >= 2)
-	{
-		init_stack(&st);
-		validate_arg(argc, argv, &st);
-		check_sorted(&st);
-		indexing(&st);
-		stacking(&st);
-		operating(&st);
-		exit(0);
-	}
+void	sb(t_info *stacks)
+{
+	ps_swap(stacks->a_stack);
+	write(1, "sb\n", 3);
+}
+
+void	ss(t_info *stacks)
+{
+	ps_swap(stacks->a_stack);
+	ps_swap(stacks->b_stack);
+	write(1, "ss\n", 3);
 }

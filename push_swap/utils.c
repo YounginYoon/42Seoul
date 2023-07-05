@@ -6,7 +6,7 @@
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 13:42:02 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/03 14:45:10 by youyoon          ###   ########seoul.kr  */
+/*   Updated: 2023/07/05 16:31:17 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ps_atoi(const char *str)
 {
-	int 		sign;
-	long long 	ret;
+	int			sign;
+	long long	ret;
 
 	ret = 0;
 	sign = 1;
@@ -39,7 +39,7 @@ int	ps_atoi(const char *str)
 
 int	check_valid_atoi(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -53,8 +53,8 @@ int	check_valid_atoi(char *str)
 
 void	check_sorted(t_info *stacks)
 {
-	int i;
-	int check;
+	int	i;
+	int	check;
 
 	i = stacks->list_size;
 	check = 0;
@@ -66,4 +66,50 @@ void	check_sorted(t_info *stacks)
 	}
 	if (check == stacks->list_size - 1)
 		exit(0);
+}
+
+static int	find_max_index(t_info *stacks)
+{
+	int	max;
+	int	idx;
+
+	max = -2147483648;
+	idx = 0;
+	while (idx < stacks->list_size)
+	{
+		if (max < stacks->list[idx])
+			max = stacks->list[idx];
+		idx++;
+	}
+	idx = 0;
+	while (idx < stacks->list_size)
+	{
+		if (max == stacks->list[idx])
+		{
+			stacks->list[idx] = -2147483648;
+			return (idx);
+		}
+		idx++;
+	}
+	return (-1);
+}
+
+void	indexing(t_info *stacks)
+{
+	int	*idx_list;
+	int	idx;
+	int	max_idx;
+
+	idx_list = (int *) malloc(sizeof(int) * stacks->list_size);
+	if (!idx_list)
+		print_error();
+	idx = stacks->list_size - 1;
+	while (idx >= 0)
+	{
+		max_idx = find_max_index(stacks);
+		idx_list[max_idx] = idx;
+		idx--;
+	}
+	free(stacks->list);
+	stacks->list = idx_list;
 }

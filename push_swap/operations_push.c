@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   operations_push.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 18:21:39 by youyoon           #+#    #+#             */
-/*   Updated: 2022/11/18 18:53:02 by youyoon          ###   ########.fr       */
+/*   Created: 2023/07/05 15:21:29 by youyoon           #+#    #+#             */
+/*   Updated: 2023/07/05 18:59:49 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-static void	exception(int n, int fd)
+void	pa(t_info *stacks)
 {
-	if (n == 0)
-		ft_putchar_fd('0', fd);
-	else if (n == -2147483648)
+	if (stacks->b_stack->top->next->data != 0)
 	{
-		ft_putstr_fd("-2147483648", fd);
+		push_top(stacks->a_stack, pop_top(stacks->b_stack));
+		stacks->a_stack->len++;
+		stacks->b_stack->len--;
+		write(1, "pa\n", 3);
 	}
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void	pb(t_info *stacks)
 {
-	if (n == 0 || n == -2147483648)
+	if (stacks->a_stack->top->next->data != 0)
 	{
-		exception(n, fd);
-		return ;
+		push_top(stacks->b_stack, pop_top(stacks->a_stack));
+		stacks->b_stack->len++;
+		stacks->a_stack->len--;
+		write(1, "pb\n", 3);
 	}
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n *= (-1);
-	}
-	if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		n %= 10;
-	}
-	ft_putchar_fd(n + '0', fd);
 }

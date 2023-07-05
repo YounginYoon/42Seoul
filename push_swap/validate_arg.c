@@ -1,15 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate_arg.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 14:02:16 by youyoon           #+#    #+#             */
+/*   Updated: 2023/07/05 16:31:38 by youyoon          ###   ########seoul.kr  */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static char	*join_argv(int argc, char *argv[])
 {
-	long long i;
-	long long j;
-	long long len;
-	long long idx;
-	char *ret;
+	long long	i;
+	long long	j;
+	long long	len;
+	long long	idx;
+	char		*ret;
 
 	i = 1;
 	len = 0;
+	idx = 0;
 	while (i < argc)
 		len += ft_strlen(argv[i++]);
 	ret = (char *)malloc(sizeof(char) * (len + argc));
@@ -30,8 +43,8 @@ static char	*join_argv(int argc, char *argv[])
 
 static int	get_arg_size(const char *str, char c)
 {
-	int size;
-	int i;
+	int	size;
+	int	i;
 
 	size = 0;
 	i = 0;
@@ -49,8 +62,8 @@ static int	get_arg_size(const char *str, char c)
 
 static void	check_overlap(t_info *stacks, int data)
 {
-	int i;
-	int *new_list;
+	int	i;
+	int	*new_list;
 
 	i = 0;
 	while (i < stacks->list_size)
@@ -61,15 +74,15 @@ static void	check_overlap(t_info *stacks, int data)
 	}
 	stacks->list_size++;
 	new_list = (int *)malloc(sizeof(int) * (stacks->list_size));
-	if (!new_int)
+	if (!new_list)
 		print_error();
 	if (stacks->list_size == 1)
 		new_list[0] = data;
 	else
 	{
-		i = 0;
-		while (i < stacks->list_size)
-			new_list[i] = stacks->list[i++];
+		i = -1;
+		while (++i < stacks->list_size - 1)
+			new_list[i] = stacks->list[i];
 		new_list[i] = data;
 	}
 	free(stacks->list);
@@ -78,11 +91,11 @@ static void	check_overlap(t_info *stacks, int data)
 
 void	validate_arg(int argc, char *argv[], t_info *stacks)
 {
-	char 	*args;
-	char **tmp;
-	int 	argv_size;
-	int i;
-	t_node *new_node;
+	char	*args;
+	char	**tmp;
+	int		argv_size;
+	int		i;
+	t_node	*new_node;
 
 	args = join_argv(argc, argv);
 	argv_size = get_arg_size(args, ' ');
