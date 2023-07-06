@@ -6,7 +6,7 @@
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:29:28 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/05 19:23:18 by youyoon          ###   ########seoul.kr  */
+/*   Updated: 2023/07/06 16:58:46 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	check_bigger(int a_min, int b_min, int a_loc, int b_loc)
 	if (a_loc < 0)
 		a_loc = a_loc * -1;
 	if (b_loc < 0)
-		b_loc - b_loc * -1;
+		b_loc = b_loc * -1;
 	if (a_min + b_min > a_loc + b_loc)
 		return (1);
 	return (0);

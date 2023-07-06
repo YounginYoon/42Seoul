@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 13:37:30 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/05 16:39:48 by youyoon          ###   ########seoul.kr  */
+/*   Created: 2022/11/10 19:52:48 by youyoon           #+#    #+#             */
+/*   Updated: 2022/11/18 14:02:08 by youyoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_error(void)
+static void	*my_memset(void *b, int c, size_t len)
 {
-	write(2, "Error\n", 6);
-	exit(1);
+	unsigned char	*tmp;
+
+	tmp = b;
+	while (len--)
+	{
+		*tmp++ = (unsigned char)c;
+	}
+	return (b);
 }
 
-int	main(int argc, char *argv[])
+void	ft_bzero(void *s, size_t n)
 {
-	t_info	st;
-
-	if (argc >= 2)
-	{
-		init_stack(&st);
-		validate_arg(argc, argv, &st);
-		check_sorted(&st);
-		indexing(&st);
-		stacking(&st);
-		operating(&st);
-		exit(0);
-	}
+	my_memset(s, 0, n);
 }

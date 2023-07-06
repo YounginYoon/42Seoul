@@ -6,7 +6,7 @@
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:54:58 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/05 19:28:18 by youyoon          ###   ########seoul.kr  */
+/*   Updated: 2023/07/06 15:59:22 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotate_same(t_info *stacks, int *a, int *b)
 {
-	while (*a && *b && (*a > 0) && (*b > 0))
+	while (*a && *b && (*a > 0 && *b > 0))
 	{
 		rr(stacks);
 		*a = *a - 1;
@@ -22,7 +22,7 @@ void	rotate_same(t_info *stacks, int *a, int *b)
 	}
 	while (*a && *b && (*a < 0) && (*b < 0))
 	{
-		rr(stacks);
+		rrr(stacks);
 		*a = *a + 1;
 		*b = *b + 1;
 	}
@@ -70,6 +70,7 @@ void	get_min_rotate(t_info *stacks, int *a_min, int *b_min)
 	t_node	*b_cur;
 	int		num;
 
+	idx = 0;
 	b_cur = stacks->b_stack->top->next;
 	while (idx < stacks->b_stack->len)
 	{

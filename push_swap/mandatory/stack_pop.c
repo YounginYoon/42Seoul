@@ -6,7 +6,7 @@
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:12:11 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/03 16:02:35 by youyoon          ###   ########seoul.kr  */
+/*   Updated: 2023/07/06 15:26:39 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ t_node	*pop_top(t_stack *s)
 	s->top->next = del->next;
 	del->prev = NULL;
 	del->next = NULL;
-	s->len--;
 	return (del);
 }
 
@@ -45,6 +44,5 @@ t_node	*pop_bottom(t_stack *s)
 	s->bottom->prev = del->prev;
 	del->prev = NULL;
 	del->next = NULL;
-	s->len--;
 	return (del);
 }

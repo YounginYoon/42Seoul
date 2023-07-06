@@ -6,7 +6,7 @@
 #    By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 14:27:25 by youyoon           #+#    #+#              #
-#    Updated: 2023/07/05 19:32:26 by youyoon          ###   ########seoul.kr   #
+#    Updated: 2023/07/06 16:07:49 by youyoon          ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,19 +15,19 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = stack_push.c\
-	stack_pop.c\
-	push_swap.c\
-	utils.c\
-	utils2.c\
-	validate_arg.c\
-	operations_push.c\
-	operations_swap.c\
-	operations_rotate.c\
-	operations_rotate2.c\
-	sort.c\
-	sort_rotate.c\
-	sort_find_location.c\
+SRCS = mandatory/operations_push.c\
+	mandatory/operations_rotate.c\
+	mandatory/operations_rotate2.c\
+	mandatory/operations_swap.c\
+	mandatory/push_swap.c\
+	mandatory/sort_find_location.c\
+	mandatory/sort_rotate.c\
+	mandatory/sort.c\
+	mandatory/stack_pop.c\
+	mandatory/stack_push.c\
+	mandatory/utils.c\
+	mandatory/utils2.c\
+	mandatory/validate_arg.c\
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -35,7 +35,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C ./libft
-	$(CC) $(CFLAGS) -o $@ libft/libft.a
+	$(CC) $(CFLAGS) $(SRCS) -o $@ libft/libft.a
 
 clean:
 	make clean -C ./libft

@@ -6,7 +6,7 @@
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:08:25 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/05 19:31:34 by youyoon          ###   ########seoul.kr  */
+/*   Updated: 2023/07/06 17:01:45 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,9 @@ void	sort_args(t_info *stacks)
 
 void	sort_big_last(t_info *stacks)
 {
-	int min_loc = find_mid_a(stacks);
+	int	min_loc;
+
+	min_loc = find_min_a(stacks);
 	while (min_loc)
 	{
 		if (min_loc > 0)

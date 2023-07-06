@@ -6,7 +6,7 @@
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 14:02:16 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/05 16:31:38 by youyoon          ###   ########seoul.kr  */
+/*   Updated: 2023/07/06 14:49:47 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static char	*join_argv(int argc, char *argv[])
 	ret = (char *)malloc(sizeof(char) * (len + argc));
 	if (!ret)
 		return (NULL);
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (++i < argc)
 	{
 		j = 0;
 		while (argv[i][j])

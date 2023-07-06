@@ -51,7 +51,6 @@ void	push_top(t_stack *s, t_node *new_node)
 	new_node->next = s->top->next;
 	s->top->next->prev = new_node;
 	s->top->next = new_node;
-	s->len++;
 }
 
 void	push_bottom(t_stack *s, t_node *new_node)
@@ -60,5 +59,4 @@ void	push_bottom(t_stack *s, t_node *new_node)
 	new_node->prev = s->bottom->prev;
 	s->bottom->prev->next = new_node;
 	s->bottom->prev = new_node;
-	s->len++;
 }
