@@ -6,7 +6,7 @@
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:29:28 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/06 16:58:46 by youyoon          ###   ########seoul.kr  */
+/*   Updated: 2023/07/06 19:21:50 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	divide_pivot(t_info *stacks)
 	while (times < stacks->max_list_size)
 	{
 		tmp = pop_top(stacks->a_stack);
-		if (tmp->data < p2)
+		if (tmp->data <= p2)
 		{
 			push_top(stacks->a_stack, tmp);
 			pb(stacks);

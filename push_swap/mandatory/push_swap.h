@@ -6,7 +6,7 @@
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 13:04:11 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/06 16:57:59 by youyoon          ###   ########seoul.kr  */
+/*   Updated: 2023/07/06 18:22:40 by youyoon          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 # include "../libft/libft.h"
 
