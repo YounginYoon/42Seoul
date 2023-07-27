@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   philo.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:51:12 by youyoon           #+#    #+#             */
-/*   Updated: 2023/07/27 15:15:00 by youyoon          ###   ########.fr       */
+/*   Updated: 2023/07/27 17:10:58 by youyoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,14 @@ int			init_philo(t_philo **philo, t_arg *arg);
 
 /* utils.c */
 int			ft_atoi(const char *str);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 long long	get_time(void);
+void		sleep_until_even_eat(t_arg *arg);
+void		spend_time(long long wait_time, t_arg *arg);
 
 /* philo.c */
 int			ph_start(t_arg *arg, t_philo *philo);
+void		*ph_thread(void *argv);
+int			ph_action(t_arg *arg, t_philo *philo);
+void		ph_check_finish(t_arg *arg, t_philo *philo);
 #endif
