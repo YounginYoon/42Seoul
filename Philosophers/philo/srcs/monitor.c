@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   monitor.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/10 13:19:43 by youyoon           #+#    #+#             */
+/*   Updated: 2023/08/10 13:19:43 by youyoon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 static int	check_die(t_monitor *monitor)
 {
 	int				i;
-	struct timeval	cur_time;
+	struct timeval	curr_time;
 	long			time_gap;
 
 	i = -1;
 	while (++i < monitor->num_of_philo)
 	{
-		if (gettimeofday(&cur_time, NULL) != 0)
+		if (gettimeofday(&curr_time, NULL) != 0)
 		{
 			pthread_mutex_lock(&(monitor->m_finish));
 			monitor->finish_flag = 2;
@@ -17,8 +29,8 @@ static int	check_die(t_monitor *monitor)
 			return (1);
 		}
 		pthread_mutex_lock(&(monitor->philo[i].m_last_eat));
-		time_gap = calculate_timeval(&(monitor->start_time), &cur_time) \
-								- monitor->philo[i].last_eat;
+		time_gap = calculate_timeval(&(monitor->start_time), &curr_time) \
+							- monitor->philo[i].last_eat;
 		pthread_mutex_unlock(&(monitor->philo[i].m_last_eat));
 		if (time_gap > monitor->time_to_die)
 			return (print_finish_state(&(monitor->philo[i]), DIE));
@@ -29,7 +41,7 @@ static int	check_die(t_monitor *monitor)
 static int	check_must_eat(t_monitor *monitor)
 {
 	int	i;
-	int	cur_eat;
+	int	curr_eat;
 	int	full_cnt;
 
 	i = 0;
@@ -37,9 +49,9 @@ static int	check_must_eat(t_monitor *monitor)
 	while (i < monitor->num_of_philo)
 	{
 		pthread_mutex_lock(&(monitor->philo[i].m_cnt_eat));
-		cur_eat = monitor->philo[i].cnt_eat;
+		curr_eat = monitor->philo[i].cnt_eat;
 		pthread_mutex_unlock(&(monitor->philo[i].m_cnt_eat));
-		if (cur_eat >= monitor->must_eat)
+		if (curr_eat >= monitor->must_eat)
 			full_cnt++;
 		i++;
 	}

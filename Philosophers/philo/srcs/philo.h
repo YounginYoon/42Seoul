@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/10 13:19:49 by youyoon           #+#    #+#             */
+/*   Updated: 2023/08/10 13:19:49 by youyoon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 
@@ -46,7 +58,7 @@ typedef struct s_monitor
 int		ft_atoi(const char *str);
 void	swap_fork(t_philo *philo);
 long	calculate_timeval(struct timeval *start, struct timeval *end);
-void	sleep_unit(t_monitor *monitor, long	aim_time, \
+void	sleep_unit(t_monitor *monitor, long aim_time, \
 						struct timeval start_time, long unit);
 void	routine_takeoff_fork(t_philo *philo);
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   routine.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/10 13:20:03 by youyoon           #+#    #+#             */
+/*   Updated: 2023/08/10 13:20:03 by youyoon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 static void	routine_take_fork(t_philo *philo)
@@ -24,9 +36,9 @@ static void	routine_take_fork(t_philo *philo)
 
 static void	routine_eat(t_philo *philo)
 {
-	struct timeval	cur_time;
+	struct timeval	curr_time;
 
-	if (gettimeofday(&cur_time, NULL) != 0)
+	if (gettimeofday(&curr_time, NULL) != 0)
 	{
 		pthread_mutex_lock(&(philo->monitor->m_finish));
 		philo->monitor->finish_flag = 2;
@@ -34,14 +46,15 @@ static void	routine_eat(t_philo *philo)
 		return ;
 	}
 	pthread_mutex_lock(&(philo->m_last_eat));
-	philo->last_eat = calculate_timeval(&(philo->monitor->start_time), &cur_time);
+	philo->last_eat = calculate_timeval(&(philo->monitor->start_time), \
+								&curr_time);
 	pthread_mutex_unlock(&(philo->m_last_eat));
 	if (print_eat_state(philo) < 0)
 	{
 		routine_takeoff_fork(philo);
 		return ;
 	}
-	sleep_unit(philo->monitor, philo->monitor->time_to_eat, cur_time, 200);
+	sleep_unit(philo->monitor, philo->monitor->time_to_eat, curr_time, 200);
 	pthread_mutex_lock(&(philo->m_cnt_eat));
 	(philo->cnt_eat)++;
 	pthread_mutex_unlock(&(philo->m_cnt_eat));
@@ -65,7 +78,7 @@ static void	routine_sleep(t_philo *philo)
 
 void	*routine(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = arg;
 	pthread_mutex_lock(&(philo->monitor->m_start));

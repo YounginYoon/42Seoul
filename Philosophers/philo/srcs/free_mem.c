@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_mem.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/10 13:19:17 by youyoon           #+#    #+#             */
+/*   Updated: 2023/08/10 13:19:17 by youyoon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	free_philo(t_monitor *monitor, int philo_num)
@@ -34,7 +46,7 @@ void	join_thread(t_monitor *monitor)
 	i = 0;
 	while (i < monitor->num_of_philo)
 	{
-		if (!(monitor->thread[i]))
+		if (monitor->thread[i] != NULL)
 			pthread_join(monitor->thread[i], (void *)&status);
 		i++;
 	}

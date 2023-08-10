@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/10 13:19:24 by youyoon           #+#    #+#             */
+/*   Updated: 2023/08/10 13:19:24 by youyoon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 static int	init_philo(t_monitor *monitor)
@@ -5,7 +17,7 @@ static int	init_philo(t_monitor *monitor)
 	int	i;
 
 	monitor->philo = malloc(sizeof(t_philo) * monitor->num_of_philo);
-	if(monitor->philo == NULL)
+	if (monitor->philo == NULL)
 		return (-1);
 	i = -1;
 	while (++i < monitor->num_of_philo)

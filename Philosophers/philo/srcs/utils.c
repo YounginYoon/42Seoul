@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/10 13:20:08 by youyoon           #+#    #+#             */
+/*   Updated: 2023/08/10 13:20:08 by youyoon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	ft_atoi(const char *str)
@@ -23,11 +35,11 @@ int	ft_atoi(const char *str)
 
 void	swap_fork(t_philo *philo)
 {
-	int	tmp;
+	int	temp;
 
-	tmp = philo->fork_left;
+	temp = philo->fork_left;
 	philo->fork_left = philo->fork_right;
-	philo->fork_right = tmp;
+	philo->fork_right = temp;
 }
 
 long	calculate_timeval(struct timeval *start, struct timeval *end)
@@ -39,19 +51,19 @@ long	calculate_timeval(struct timeval *start, struct timeval *end)
 	return (diff_time);
 }
 
-void	sleep_unit(t_monitor *monitor, long	aim_time, \
+void	sleep_unit(t_monitor *monitor, long aim_time, \
 						struct timeval start_time, long unit)
 {
-	struct timeval	cur_time;
+	struct timeval	curr_time;
 
 	while (1)
 	{
-		if (gettimeofday(&(cur_time), NULL) != 0)
+		if (gettimeofday(&(curr_time), NULL) != 0)
 		{
 			monitor->finish_flag = 2;
 			return ;
 		}
-		if (calculate_timeval(&(start_time), &(cur_time)) >= aim_time)
+		if (calculate_timeval(&(start_time), &(curr_time)) >= aim_time)
 			break ;
 		pthread_mutex_lock(&(monitor->m_finish));
 		if (monitor->finish_flag != 0)

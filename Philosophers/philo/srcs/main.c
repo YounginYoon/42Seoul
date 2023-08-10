@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youyoon <youyoon@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/10 13:19:34 by youyoon           #+#    #+#             */
+/*   Updated: 2023/08/10 13:19:34 by youyoon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	print_error(char *msg)
@@ -20,8 +32,8 @@ int	init_start_fin_mutex(t_monitor *monitor)
 
 static int	create_philos(t_monitor *monitor)
 {
-	int		i;
-	void	*target_routine;
+	int			i;
+	void		*target_routine;
 
 	monitor->thread = malloc(sizeof(pthread_t) * monitor->num_of_philo);
 	if (monitor->thread == NULL)
@@ -35,7 +47,7 @@ static int	create_philos(t_monitor *monitor)
 	{
 		if (pthread_create(&(monitor->thread[i]), NULL, target_routine, \
 													&(monitor->philo[i])) < 0)
-			monitor->thread[i] = 0;
+			monitor->thread[i] = NULL;
 		i++;
 	}
 	i = 0;
@@ -45,21 +57,18 @@ static int	create_philos(t_monitor *monitor)
 	return (0);
 }
 
-
 int	main(int argc, char **argv)
 {
-	///atexit(check);
-	t_monitor monitor;
+	t_monitor	monitor;
 
-	
 	if (init_monitor(&monitor, argc, argv) < 0)
 	{
-		printf("fail in init_monitor\n");
+		printf("fail in initialize_monitor\n");
 		return (0);
 	}
 	if (init_start_fin_mutex(&monitor) < 0)
 	{
-		printf("fail in init_start_fin_mutex\n");
+		printf("fail in init flow mutex\n");
 		return (free_monitor(&monitor));
 	}
 	if (create_philos(&monitor) < 0)
