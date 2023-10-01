@@ -13,3 +13,6 @@
 |08|02|**Exam Rank 02**|C|Completed||
 |09|03|[**Philosopers**](https://github.com/YounginYoon/42seoul/tree/master/Philosophers)|C|Completed|[Dining philosophers problem](https://younginstudy.tistory.com/entry/42Seoul-Philosophers?category=1065282)|
 |10|03|[**minishell**](https://github.com/YounginYoon/minishell)|C|Completed|
+|11|03|**Exam Rank 03**|C|||
+
+
