@@ -1,15 +1,15 @@
 # 🐳 42 Cursus 🐳
 
-[![youyoon's 42 stats](https://badge42.vercel.app/api/v2/cll89xk86006408lbm7omzjhz/stats?cursusId=21&coalitionId=88)](https://github.com/JaeSeoKim/badge42)
 
-|Order|Circle|Project|Stack|Status|Score|
+|Order|Circle|Project|Stack|Status|About|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|01|00|[**Libft**](https://github.com/YounginYoon/42seoul/tree/master/libft)|C|Completed|[![youyoon's 42 Libft Score](https://badge42.vercel.app/api/v2/cll89xk86006408lbm7omzjhz/project/2873991)](https://github.com/JaeSeoKim/badge42)|
-|02|01|**ft_printf**|C|Completed|[![youyoon's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cll89xk86006408lbm7omzjhz/project/2923254)](https://github.com/JaeSeoKim/badge42)|
-|03|01|**get_next_line**|C|Completed|[![youyoon's 42 get_next_line Score](https://badge42.vercel.app/api/v2/cll89xk86006408lbm7omzjhz/project/2965975)](https://github.com/JaeSeoKim/badge42)|
-|04|02|[**minitalk**](https://github.com/YounginYoon/42seoul/tree/master/minitalk)|C|Completed|[![youyoon's 42 minitalk Score](https://badge42.vercel.app/api/v2/cll89xk86006408lbm7omzjhz/project/3104084)](https://github.com/JaeSeoKim/badge42)|
-|05|02|[**so_long**](https://github.com/YounginYoon/42seoul/tree/master/so_long)|C|Completed|[![youyoon's 42 so_long Score](https://badge42.vercel.app/api/v2/cll89xk86006408lbm7omzjhz/project/3132034)](https://github.com/JaeSeoKim/badge42)|
-|06|02|[**push_swap**](https://github.com/YounginYoon/42seoul/tree/master/push_swap)|C|Completed|[![youyoon's 42 push_swap Score](https://badge42.vercel.app/api/v2/cll89xk86006408lbm7omzjhz/project/3132006)](https://github.com/JaeSeoKim/badge42)|
-|07|02|**Exam Rank 02**|C|Completed|[![youyoon's 42 Exam Rank 02 Score](https://badge42.vercel.app/api/v2/cll89xk86006408lbm7omzjhz/project/3183954)](https://github.com/JaeSeoKim/badge42)|
-|08|03|[**Philosopers**](https://github.com/YounginYoon/42seoul/tree/master/Philosophers)|C|Completed|[![youyoon's 42 Philosophers Score](https://badge42.vercel.app/api/v2/cll89xk86006408lbm7omzjhz/project/3222062)](https://github.com/JaeSeoKim/badge42)|
-|09|03|[**minishell**](https://github.com/YounginYoon/minishell)|C|Completed|
+|01|00|[**Libft**](https://github.com/YounginYoon/42seoul/tree/master/libft)|C|Completed|Standard C Library Functions|
+|02|01|**ft_printf**|C|Completed|printf|
+|03|01|**get_next_line**|C|Completed|Read a text file line by line|
+|04|01|**Born2beroot**|C|Completed|[Virtual Machine](https://younginstudy.tistory.com/entry/42Seoul-Born2beroot)|
+|05|02|[**minitalk**](https://github.com/YounginYoon/42seoul/tree/master/minitalk)|C|Completed|[About Communication between two programs using UNIX signals](https://younginstudy.tistory.com/entry/42Seoul-Minitalk)|
+|06|02|[**so_long**](https://github.com/YounginYoon/42seoul/tree/master/so_long)|C|Completed|[Simple 2D game with MLX library](https://younginstudy.tistory.com/entry/42Seoul-Solong)|
+|07|02|[**push_swap**](https://github.com/YounginYoon/42seoul/tree/master/push_swap)|C|Completed|[A highly efficient sorting algorithm on two stacks](https://younginstudy.tistory.com/entry/42Seoul-pushswap?category=1065282)|
+|08|02|**Exam Rank 02**|C|Completed||
+|09|03|[**Philosopers**](https://github.com/YounginYoon/42seoul/tree/master/Philosophers)|C|Completed|[Dining philosophers problem](https://younginstudy.tistory.com/entry/42Seoul-Philosophers?category=1065282)|
+|10|03|[**minishell**](https://github.com/YounginYoon/minishell)|C|Completed|
