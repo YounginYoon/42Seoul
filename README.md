@@ -1,7 +1,7 @@
 # 🐳 42 Cursus 🐳
 
 
-|Order|Circle|Project|Stack|Status|Blog |
+|Order|Circle|Project|Stack|Status|About|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |01|00|[**Libft**](https://github.com/YounginYoon/42seoul/tree/master/libft)|C|Completed|Standard C Library Functions|
 |02|01|**ft_printf**|C|Completed|printf|
