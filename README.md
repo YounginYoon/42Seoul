@@ -1,7 +1,7 @@
 # 🐳 42 Cursus 🐳
 
 
-|Order|Circle|Project|Stack|Status|About|
+|Order|Circle|Project|Stack|Status|Blog |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |01|00|[**Libft**](https://github.com/YounginYoon/42seoul/tree/master/libft)|C|Completed|Standard C Library Functions|
 |02|01|**ft_printf**|C|Completed|printf|
@@ -13,6 +13,6 @@
 |08|02|**Exam Rank 02**|C|Completed||
 |09|03|[**Philosopers**](https://github.com/YounginYoon/42seoul/tree/master/Philosophers)|C|Completed|[Dining philosophers problem](https://younginstudy.tistory.com/entry/42Seoul-Philosophers?category=1065282)|
 |10|03|[**minishell**](https://github.com/YounginYoon/minishell)|C|Completed|
-|11|03|**Exam Rank 03**|C|||
+|11|03|**Exam Rank 03**|C|Completed||
 
 
