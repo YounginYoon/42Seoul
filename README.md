@@ -12,7 +12,7 @@
 |07|02|[**push_swap**](https://github.com/YounginYoon/42seoul/tree/master/push_swap)|C|Completed|[A highly efficient sorting algorithm on two stacks](https://younginstudy.tistory.com/entry/42Seoul-pushswap?category=1065282)|
 |08|02|**Exam Rank 02**|C|Completed||
 |09|03|[**Philosopers**](https://github.com/YounginYoon/42seoul/tree/master/Philosophers)|C|Completed|[Dining philosophers problem](https://younginstudy.tistory.com/entry/42Seoul-Philosophers?category=1065282)|
-|10|03|[**minishell**](https://github.com/YounginYoon/minishell)|C|Completed|
+|10|03|[**minishell**](https://github.com/YounginYoon/minishell)|C|Completed|Mini Bash Projects (Parsing, 시그널 핸들러 구현)|
 |11|03|**Exam Rank 03**|C|Completed||
 
 
