@@ -1,4 +1,4 @@
-# 🐳 42 Cursus 🐳
+## [🖥️ 42 Cursus](https://younginstudy.tistory.com/category/42Seoul%20%5B22.11%7E23.10%5D) (2022.11 ~ 2023.10)
 
 
 |Order|Circle|Project|Stack|Status|About|
